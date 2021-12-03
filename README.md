@@ -7,21 +7,21 @@ Any comment or propblem feel free to [fill an issue](https://github.com/dontobi/
 
 ## Example using local folder
 ```
-docker run -it --rm \
+docker run -d --name nextcloud-client \
     -v $(pwd)/sync-folder:/media/nextcloud \
     -e NC_USER=$username -e NC_PASS=$password \
     -e NC_URL=$server_url\
-    dontobi/nextcloud-client.rpi
+    dontobi/nextcloud-client.rpi:latest
 ```
 
 ## Example using local folder and exclude settings. You have to place a "exclude" file and a "unsyncfolders" file into one directory and mount it into the docker container
 ```
-docker run -it --rm \
+docker run -d --name nextcloud-client \
     -v $(pwd)/sync-folder:/media/nextcloud \
     -v /path/to/settingsfolder:/settings \
     -e NC_USER=$username -e NC_PASS=$password \
     -e NC_URL=$server_url\
-    dontobi/nextcloud-client.rpi
+    dontobi/nextcloud-client.rpi:latest
 ```
 
 ## Example for the file "exclude" in the settings folder
@@ -38,21 +38,21 @@ docker run -it --rm \
 
 ## Example using a [named volume](https://docs.docker.com/storage/volumes/)
 ```
-docker run -it --rm \
+docker run -d --name nextcloud-client \
     -v some_named_volume:/media/nextcloud \
     -e NC_USER=$username -e NC_PASS=$password \
     -e NC_URL=$server_url\
-    dontobi/nextcloud-client.rpi
+    dontobi/nextcloud-client.rpi:latest
 ```
 
 ## Example one time run
 ```
-docker run -it --rm \
+docker run -d --name nextcloud-client \
     -v some_named_volume:/media/nextcloud \
     -e NC_USER=$username -e NC_PASS=$password \
     -e NC_URL=$server_url\
     -e NC_EXIT=true\
-    dontobi/nextcloud-client.rpi
+    dontobi/nextcloud-client.rpi:latest
 ```
 
 replace:
@@ -64,11 +64,12 @@ replace:
 
 ## ENV variables to customize your deploy
 ##### NC_URL
-URL to the Nextcloud instance. You can sync spepcific folders by providing the full path in the URL like `https://cloud.example.com/remote.php/webdav/<path/to/custom/dir>`. This will only sync the contents of `path/to/custom/dir`.
+URL to the Nextcloud instance. Example: `https://cloud.example.com`
 
 ##### NC_USER
 The user name to log in
 Default: username
+
 ##### NC_PASS 
 Valid password for the user above in clear text
 Default: password
@@ -83,11 +84,10 @@ default: false
 
 ##### NC_INTERVAL
 Sets the interval between syncs in seconds
-default: 300 (300 /60 = 5 Minutes)
+default: 300 (300 / 60 = 5 Minutes)
 
 ##### NC_EXIT
-If "true" the sync will happen once and then the container will exit, very usefull for using 
-in conjunction with cron or schedulers
+If "true" the sync will happen once and then the container will exit, very usefull for using in conjunction with cron or schedulers
 default: false
 
 
