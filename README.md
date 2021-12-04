@@ -5,22 +5,26 @@ This image is based on the work made by: [Martin Peters](https://github.com/Frea
 
 Any comment or propblem feel free to [fill an issue](https://github.com/dontobi/nextcloud-client.rpi/issues/new) or make a PR!
 
-## Example using local folder
+## Example without settings folder
 ```
 docker run -d --name nextcloud-client \
-    -v $(pwd)/sync-folder:/media/nextcloud \
-    -e NC_USER=$username -e NC_PASS=$password \
-    -e NC_URL=$server_url\
+    -v [nextcloud-folder]:/media/nextcloud \
+    -e NC_USER=[nextcloud-user] \
+    -e NC_PASS=[nextcloud-password] \
+    -e NC_URL=[nextcloud-server_url] \
+    --restart=always \
     dontobi/nextcloud-client.rpi:latest
 ```
 
-## Example using local folder and exclude settings. You have to place a "exclude" file and a "unsyncfolders" file into one directory and mount it into the docker container
+## Example with settings folder. You have to place a "exclude" file and a "unsyncfolders" file into one directory and mount it into the docker container
 ```
 docker run -d --name nextcloud-client \
-    -v $(pwd)/sync-folder:/media/nextcloud \
-    -v /path/to/settingsfolder:/settings \
-    -e NC_USER=$username -e NC_PASS=$password \
-    -e NC_URL=$server_url\
+    -v [nextcloud-folder]:/media/nextcloud \
+    -v [nextcloud-folder]:/settings \
+    -e NC_USER=[nextcloud-user] \
+    -e NC_PASS=[nextcloud-password] \
+    -e NC_URL=[nextcloud-server_url] \
+    --restart=always \
     dontobi/nextcloud-client.rpi:latest
 ```
 
@@ -36,31 +40,6 @@ docker run -d --name nextcloud-client \
     folder2
 ```
 
-## Example using a [named volume](https://docs.docker.com/storage/volumes/)
-```
-docker run -d --name nextcloud-client \
-    -v some_named_volume:/media/nextcloud \
-    -e NC_USER=$username -e NC_PASS=$password \
-    -e NC_URL=$server_url\
-    dontobi/nextcloud-client.rpi:latest
-```
-
-## Example one time run
-```
-docker run -d --name nextcloud-client \
-    -v some_named_volume:/media/nextcloud \
-    -e NC_USER=$username -e NC_PASS=$password \
-    -e NC_URL=$server_url\
-    -e NC_EXIT=true\
-    dontobi/nextcloud-client.rpi:latest
-```
-
-replace:
- * $username
- * $password 
- * $server_url 
- 
- with valid values for an existing and valid user on a Nextcloud Server.
 
 ## ENV variables to customize your deploy
 ##### NC_URL
