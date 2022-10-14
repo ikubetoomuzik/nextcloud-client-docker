@@ -42,6 +42,7 @@ docker run -d --name nextcloud-client \
 
 
 ## ENV variables to customize your deploy
+
 ##### NC_URL
 URL to the Nextcloud instance. Example: `https://cloud.example.com`
 
@@ -57,6 +58,10 @@ Default: password
 The directory inside de docker container to be synced, usually you will have a local mount here or a named volume
 default: /media/nextcloud/
 
+##### NC_PATH
+You can sync specific folders by providing the full path like `/path/to/custom/dir`. This will only sync the contents of this folder inside `$NC_SOURCE_DIR`.
+default: "" i.e. root folder
+
 ##### NC_SILENT
 whether or not output activity to console
 default: false
@@ -66,29 +71,35 @@ Sets the interval between syncs in seconds
 default: 300 (300 / 60 = 5 Minutes)
 
 ##### NC_EXIT
-If "true" the sync will happen once and then the container will exit, very usefull for using in conjunction with cron or schedulers
+If "true" the sync will happen once and then the container will exit, very usefull for using 
+in conjunction with cron or schedulers
 default: false
-
-
+ 
 ## Advanced settings
+
 ##### USER
 The system user inside the container you want to use for runing the sync
+
 default: ncsync
 
 ##### USER_GID
 The system user group id inside the container you want to use for runing the sync
+
 default: 1000
 
 ##### USER_UID
 The system user id inside the container you want to use for runing the sync
+
 default: 1000
 
 ##### NC_TRUST_CERT
 whether or not trust self signed certificates or invalid certificates
+
 default: false
 
 ##### NC_HIDDEN
 whether or not nextcloud should be forced to sync hidden files
+
 default: false
 
 
