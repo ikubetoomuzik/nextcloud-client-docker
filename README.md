@@ -1,3 +1,9 @@
+[![Source](https://img.shields.io/badge/source-github-blue)](https://github.com/dontobi/nextcloud-client.rpi)
+[![Github Issues](https://img.shields.io/github/issues/dontobi/nextcloud-client.rpi)](https://github.com/dontobi/nextcloud-client.rpi/issues)
+[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/dontobi/nextcloud-client.rpi/latest)](https://hub.docker.com/repository/docker/dontobi/nextcloud-client.rpi)
+[![Docker Pulls](https://img.shields.io/docker/pulls/dontobi/nextcloud-client.rpi)](https://hub.docker.com/repository/docker/dontobi/nextcloud-client.rpi)
+[![License](https://img.shields.io/github/license/dontobi/nextcloud-client.rpi)](https://github.com/dontobi/nextcloud-client.rpi/blob/main/LICENSE.md)
+
 # Nextcloud docker-client
 This image provides you an alpine based image for syncing your files with a remote [nextcloud server ](https://nextcloud.com/)
 
@@ -106,7 +112,7 @@ default: false
 ## License
 MIT License
 
-Copyright (c) 2022 [Tobias 'dontobi' S.]
+Copyright (c) 2022-2023 [Tobias 'dontobi' Schug]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
