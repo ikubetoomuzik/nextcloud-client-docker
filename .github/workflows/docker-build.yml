@@ -28,13 +28,6 @@ jobs:
           sed -e "s/\${VERSION}/$VERSION/" -e "s/\${DATI}/$DATI/" ./Dockerfile > ./Dockerfile.tmp
           mv -f ./Dockerfile.tmp ./Dockerfile
 
-      - name: Set up manifest tool
-        run: |
-          wget https://github.com/estesp/manifest-tool/releases/download/v2.0.6/binaries-manifest-tool-2.0.6.tar.gz -O binaries-manifest-tool.tar.gz
-          tar xzvf binaries-manifest-tool.tar.gz manifest-tool-linux-amd64
-          mv manifest-tool-linux-amd64 manifest-tool
-          chmod +x manifest-tool
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2.1.0
 
