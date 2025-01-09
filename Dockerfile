@@ -16,8 +16,8 @@ LABEL org.opencontainers.image.title="Nextcloud-Client Docker Image" \
 
 # Set Arguments
 ARG USER=ncsync
-ARG USER_UID=1000
-ARG USER_GID=1000
+ARG USER_UID=99
+ARG USER_GID=100
 
 # Set Variables
 ENV USER=$USER \

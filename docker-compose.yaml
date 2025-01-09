@@ -1,0 +1,14 @@
+services:
+  nextcloud_library_sync:
+    build: .
+    container_name: library_sync
+    environment:
+      NC_USER: $NC_USER
+      NC_PASS: $NC_PASS
+      NC_URL: $NC_URL
+      NC_PATH: $NC_PATH
+      USER_UID: 99
+      USER_GID: 100
+    volumes:
+      - /mnt/user/Media/Content/Books/raw:/media/nextcloud
+    restart: unless-stopped
