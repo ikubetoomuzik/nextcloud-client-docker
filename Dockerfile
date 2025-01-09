@@ -36,7 +36,7 @@ ENV USER=$USER \
 
 # Building
 # create group and user
-RUN addgroup -g $USER_GID $USER && adduser -G $USER -D -u $USER_UID $USER
+RUN adduser -g $USER_GID -D -u $USER_UID $USER
 # update repositories and install nextcloud-client
 RUN apk -U --no-cache add nextcloud-client moreutils && rm -rf /etc/apk/cache
 # add run script
